@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-serif",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,45 +26,59 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-zinc-900`}>
-        <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-zinc-200/60">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-            <a href="/" className="text-2xl font-semibold tracking-tight">Aura</a>
-            <nav className="flex items-center gap-6 text-sm">
-              <a href="/collection" className="text-zinc-700 hover:text-black hover:underline underline-offset-4">Collection</a>
-              <a href="/inspiration" className="text-zinc-700 hover:text-black hover:underline underline-offset-4">Inspiration</a>
-              <a href="/contact" className="text-zinc-700 hover:text-black hover:underline underline-offset-4">Contact</a>
+      <body className={`${inter.variable} ${playfair.variable} antialiased bg-white text-zinc-900`}>
+        <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/70 backdrop-blur-md">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:py-5">
+            <a href="/" className="select-none">
+              <span className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-zinc-900">Aura</span>
+            </a>
+            <nav className="hidden md:flex items-center gap-8 text-sm">
+              <a href="/collection" className="group relative text-zinc-700 hover:text-zinc-900 transition-colors">
+                <span>Collection</span>
+                <span className="absolute left-0 -bottom-1 h-px w-0 bg-zinc-900 transition-all duration-300 group-hover:w-full" />
+              </a>
+              <a href="/inspiration" className="group relative text-zinc-700 hover:text-zinc-900 transition-colors">
+                <span>Inspiration</span>
+                <span className="absolute left-0 -bottom-1 h-px w-0 bg-zinc-900 transition-all duration-300 group-hover:w-full" />
+              </a>
+              <a href="/contact" className="group relative text-zinc-700 hover:text-zinc-900 transition-colors">
+                <span>Contact</span>
+                <span className="absolute left-0 -bottom-1 h-px w-0 bg-zinc-900 transition-all duration-300 group-hover:w-full" />
+              </a>
             </nav>
           </div>
         </header>
         {children}
-        <footer className="mt-24 border-t border-zinc-200 bg-zinc-50/60">
-          <div className="mx-auto max-w-6xl px-6 py-12 grid gap-8 sm:grid-cols-3 text-sm">
+        <footer className="mt-28 border-t border-zinc-200 bg-zinc-50/70">
+          <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 sm:grid-cols-3 text-sm">
             <div>
-              <div className="text-lg font-medium text-zinc-900">Aura</div>
-              <p className="mt-2 text-zinc-600">Premium quartz surfaces engineered for modern living.</p>
+              <div className="font-serif text-xl font-semibold text-zinc-900">Aura</div>
+              <p className="mt-3 text-zinc-600 leading-relaxed">Premium quartz surfaces engineered for modern living.</p>
             </div>
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">Explore</div>
-              <ul className="mt-3 space-y-2 text-zinc-600">
-                <li><a href="/collection" className="hover:text-zinc-900">Collection</a></li>
-                <li><a href="/inspiration" className="hover:text-zinc-900">Inspiration</a></li>
-                <li><a href="/contact" className="hover:text-zinc-900">Contact</a></li>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Explore</div>
+              <ul className="mt-4 space-y-2 text-zinc-600">
+                <li><a href="/collection" className="hover:text-zinc-900 transition-colors">Collection</a></li>
+                <li><a href="/inspiration" className="hover:text-zinc-900 transition-colors">Inspiration</a></li>
+                <li><a href="/contact" className="hover:text-zinc-900 transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">Follow</div>
-              <div className="mt-3 flex gap-4 text-zinc-600">
-                <a href="#" className="hover:text-zinc-900">Instagram</a>
-                <a href="#" className="hover:text-zinc-900">X</a>
-                <a href="#" className="hover:text-zinc-900">Pinterest</a>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Follow</div>
+              <div className="mt-4 flex gap-4 text-zinc-600">
+                <a href="#" className="hover:text-zinc-900 transition-colors">Instagram</a>
+                <a href="#" className="hover:text-zinc-900 transition-colors">X</a>
+                <a href="#" className="hover:text-zinc-900 transition-colors">Pinterest</a>
               </div>
             </div>
           </div>
-          <div className="border-t border-zinc-200">
-            <div className="mx-auto max-w-6xl px-6 py-4 text-xs text-zinc-500 flex items-center justify-between">
+          <div className="border-t border-zinc-200/80">
+            <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-zinc-500 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <p>© {new Date().getFullYear()} Aura Surfaces. All rights reserved.</p>
-              <p>Crafted with Next.js</p>
+              <div className="flex gap-4">
+                <a href="#" className="hover:text-zinc-700">Privacy</a>
+                <a href="#" className="hover:text-zinc-700">Terms</a>
+              </div>
             </div>
           </div>
         </footer>

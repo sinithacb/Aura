@@ -1,3 +1,5 @@
+import Button from "@/components/Button";
+
 export default function ContactPage(): JSX.Element {
   return (
     <main className="mx-auto max-w-xl px-6 py-12">
@@ -15,7 +17,7 @@ export default function ContactPage(): JSX.Element {
           <label className="block text-sm font-medium">Message</label>
           <textarea className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" rows={5} required />
         </div>
-        <button className="rounded-md bg-black px-4 py-2 text-white">Send</button>
+        <Button type="submit" variant="solid">Send</Button>
       </form>
     </main>
   );
