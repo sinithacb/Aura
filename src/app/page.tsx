@@ -6,7 +6,7 @@ import type { Category } from "@/types/content";
 
 type CategoriesResponse = { data: Category[] };
 
-export default async function HomePage(): Promise<JSX.Element> {
+export default async function HomePage() {
   let categories: Category[] = [] as unknown as Category[];
   try {
     const res = await fetchFromStrapi<CategoriesResponse>(
@@ -103,35 +103,35 @@ export default async function HomePage(): Promise<JSX.Element> {
           )}
         </div>
       </section>
-      <section className="bg-zinc-50">
-        <div className="mx-auto max-w-6xl px-6 py-16">
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <FadeIn>
           <h2 className="text-2xl font-semibold">Why Aura</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <FadeIn>
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-              <div className="text-lg font-medium">Extreme Durability</div>
-              <p className="mt-2 text-sm text-zinc-600">Resists scratches, chips, and cracks for high-traffic spaces.</p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-              <div className="text-lg font-medium">Stain Resistant</div>
-              <p className="mt-2 text-sm text-zinc-600">Non-porous surface blocks wine, coffee, and oil stains.</p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-              <div className="text-lg font-medium">Low Maintenance</div>
-              <p className="mt-2 text-sm text-zinc-600">No sealing required. Wipes clean with soap and water.</p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-              <div className="text-lg font-medium">Hygienic Surface</div>
-              <p className="mt-2 text-sm text-zinc-600">Non-porous nature prevents bacteria growth.</p>
-              </div>
-            </FadeIn>
-          </div>
+        </FadeIn>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <FadeIn>
+            <div className="group rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:border-zinc-300 hover:shadow-lg">
+              <div className="text-lg font-semibold text-zinc-900">Extreme Durability</div>
+              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">Resists scratches, chips, and cracks for high-traffic spaces.</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.05}>
+            <div className="group rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:border-zinc-300 hover:shadow-lg">
+              <div className="text-lg font-semibold text-zinc-900">Stain Resistant</div>
+              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">Non-porous surface blocks wine, coffee, and oil stains.</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="group rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:border-zinc-300 hover:shadow-lg">
+              <div className="text-lg font-semibold text-zinc-900">Low Maintenance</div>
+              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">No sealing required. Wipes clean with soap and water.</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="group rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:border-zinc-300 hover:shadow-lg">
+              <div className="text-lg font-semibold text-zinc-900">Hygienic Surface</div>
+              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">Non-porous nature prevents bacteria growth.</p>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </main>
