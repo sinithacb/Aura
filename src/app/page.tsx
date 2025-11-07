@@ -85,18 +85,35 @@ export default async function HomePage() {
           {categories.length === 0 && (
             <div className="col-span-full grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                "https://images.pexels.com/photos/1451472/pexels-photo-1451472.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-                "https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-                "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-                "https://images.pexels.com/photos/1030915/pexels-photo-1030915.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-                "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-                "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200&h=800",
-              ].map((src, i) => (
+                { name: "Classic", slug: "classic", image: "https://images.pexels.com/photos/1451472/pexels-photo-1451472.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Modern", slug: "modern", image: "https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Premium", slug: "premium", image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Luxury", slug: "luxury", image: "https://images.pexels.com/photos/1030915/pexels-photo-1030915.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Industrial", slug: "industrial", image: "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Natural", slug: "natural", image: "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Contemporary", slug: "contemporary", image: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Minimalist", slug: "minimalist", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+                { name: "Elegant", slug: "elegant", image: "https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+              ].map((category, i) => (
                 <FadeIn key={i} delay={i * 0.05}>
-                  <div className="relative rounded-xl border border-zinc-200 overflow-hidden">
-                    <Image src={src} alt="Inspiration" width={800} height={600} unoptimized className="h-48 w-full object-cover transition-transform duration-500 ease-out hover:scale-105" />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  </div>
+                  <Link
+                    href={`/collection?category=${category.slug}`}
+                    className="group block rounded-xl border border-zinc-200 overflow-hidden bg-white"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <Image 
+                        src={category.image} 
+                        alt={category.name} 
+                        width={800} 
+                        height={600} 
+                        unoptimized 
+                        className="h-48 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" 
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4">
+                        <h3 className="text-white text-lg font-medium">{category.name}</h3>
+                      </div>
+                    </div>
+                  </Link>
                 </FadeIn>
               ))}
             </div>

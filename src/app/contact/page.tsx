@@ -1,11 +1,17 @@
 import FadeIn from "@/components/animations/FadeIn";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Aura Surfaces",
+  description: "Get in touch with Aura Surfaces. Have questions about our premium quartz surfaces? We'd love to hear from you.",
+};
 
 export default function ContactPage() {
   return (
     <main className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
       <FadeIn>
         <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-zinc-100 mb-4">
             Get in Touch
           </h1>
           <p className="text-lg text-zinc-300 max-w-xl mx-auto">

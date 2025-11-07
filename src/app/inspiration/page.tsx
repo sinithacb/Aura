@@ -18,12 +18,24 @@ export default async function InspirationPage() {
   }
 
   const sampleImages = [
-    "https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-    "https://images.pexels.com/photos/1451472/pexels-photo-1451472.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-    "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-    "https://images.pexels.com/photos/1030915/pexels-photo-1030915.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-    "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800",
-    "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200&h=800",
+    { title: "Modern Kitchen Design", image: "https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Elegant Bathroom Vanity", image: "https://images.pexels.com/photos/1451472/pexels-photo-1451472.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Luxury Living Space", image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Contemporary Countertops", image: "https://images.pexels.com/photos/1030915/pexels-photo-1030915.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Industrial Style Kitchen", image: "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Minimalist Design", image: "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Classic Marble Look", image: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Sleek Modern Island", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Premium Finish", image: "https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Natural Stone Aesthetic", image: "https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Elegant Dining Area", image: "https://images.pexels.com/photos/1451472/pexels-photo-1451472.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Luxury Master Bathroom", image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Contemporary Style", image: "https://images.pexels.com/photos/1030915/pexels-photo-1030915.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Open Concept Living", image: "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Designer Kitchen", image: "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Timeless Elegance", image: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Modern Minimalism", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
+    { title: "Premium Quality", image: "https://images.pexels.com/photos/164005/pexels-photo-164005.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800" },
   ];
 
   return (
@@ -70,7 +82,7 @@ export default async function InspirationPage() {
             </FadeIn>
           );
         })}
-        {items.length === 0 && sampleImages.map((src, i) => (
+        {items.length === 0 && sampleImages.map((item, i) => (
           <FadeIn key={i} delay={i * 0.05} y={20}>
             <Link 
               href="/inspiration/sample" 
@@ -79,8 +91,8 @@ export default async function InspirationPage() {
               <div className="relative overflow-hidden rounded-xl bg-zinc-100 shadow-sm transition-all duration-500 group-hover:shadow-xl">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image 
-                    src={src} 
-                    alt="Inspiration Sample" 
+                    src={item.image} 
+                    alt={item.title} 
                     fill
                     unoptimized 
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110" 
@@ -88,7 +100,7 @@ export default async function InspirationPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 sm:p-5">
                     <div className="text-white text-sm sm:text-base font-medium leading-snug">
-                      Inspiration Sample
+                      {item.title}
                     </div>
                   </div>
                 </div>

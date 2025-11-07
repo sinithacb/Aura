@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,37 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-zinc-900 flex flex-col min-h-full`}>
-        <header className="sticky top-0 z-50 bg-black/70 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8 py-4 sm:py-5">
-            <a href="/" className="text-2xl sm:text-3xl font-bold tracking-tighter text-white hover:opacity-80 transition-opacity duration-200">
-              Aura
-            </a>
-            <nav className="flex items-center gap-8 sm:gap-10 text-sm sm:text-base">
-              <a 
-                href="/collection" 
-                className="relative text-zinc-300 hover:text-white transition-all duration-300 group"
-              >
-                Collection
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <a 
-                href="/inspiration" 
-                className="relative text-zinc-300 hover:text-white transition-all duration-300 group"
-              >
-                Inspiration
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <a 
-                href="/contact" 
-                className="relative text-zinc-300 hover:text-white transition-all duration-300 group"
-              >
-                Contact
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </nav>
-          </div>
-        </header>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-zinc-900 flex flex-col min-h-full`} suppressHydrationWarning>
+        <Header />
         <main className="flex-1">
           {children}
         </main>
